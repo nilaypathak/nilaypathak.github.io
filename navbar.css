@@ -1,0 +1,31 @@
+body{
+	margin:0px;
+	background-image: url("home_back.jpg");
+	
+}
+
+table{
+		table-layout:fixed;
+		border-collapse:collapse;
+		width:96%;
+		text-align:center;
+		padding :0px;
+		background-color:#800000;
+		margin:1vw 2vw;
+		font-weight:2em;
+        font-size:1.5vw;
+		color:white;
+		border-radius:6px;
+	}
+td	{   max-width:25%;
+	    padding-top:0.8vw;
+		padding-bottom:0.8vw;
+		margin:0px;
+	}
+td:hover{
+        border-radius:6px;
+		background-color:#ffb3b3;
+	}
+td.current{
+	background-color:black;
+}
