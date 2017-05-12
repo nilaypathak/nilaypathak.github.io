@@ -1,0 +1,99 @@
+body{
+  margin:0px;
+ 
+}
+img.topbar {
+     width:100%;
+	 height:47px;
+}
+img.logo {
+	width:22px;
+	height:22px;
+	z-index:+1;
+	position:relative;
+	top:13px;
+	left:13px;
+	
+}
+.logodiv{
+	
+	width:49px;
+	height:43px;
+	position:absolute;
+	top:0px;
+	left:50.5%;
+	z-index:+1;
+}
+.logodiv:hover{
+border-bottom: solid rgb(0, 138, 230) 4px;}
+p.jointwi{
+	font-family: "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+	font-size:30px;
+	margin-bottom:20px;
+}
+pre{
+	font-family: "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+	font-size:13px;
+	position:absolute;
+	left:70%;
+	top:14px;
+	margin:0px;
+	color:white;
+	
+}
+.navbarlink{
+	color:white;
+	text-decoration:none;
+}
+.navbarlink:hover{
+	color:rgb(26, 117, 255);
+	text-decoration:underline;
+}
+input[type=text],input[type=password]  {
+    width:400px;
+    padding: 12px 20px;
+    margin: 6px 0;
+	font-size:18px;
+	color:rgb(115, 115, 115);
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+
+input[type=submit]{
+    width:400px;
+    background-color:4099FF;
+    color: white;
+	font-size:18px;
+    padding: 12px 20px;
+    margin: 6px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.link1{
+color:4099FF;
+text-decoration:none;
+}
+.link1:hover{
+color:4099FF;
+text-decoration:underline;
+}
+
+.foot{
+	font-size:0.85em;
+	color:rgb(115, 115, 115);
+	margin-bottom:10px;
+	margin-top:10px;
+}
+.center{
+
+	width:402px;
+	margin-left:37vw;
+	margin-top:75px;
+}
+.adv{
+font-size:1.2em;}
