@@ -18,8 +18,7 @@ table{
 		border-radius:6px;
 	}
 td	{   max-width:25%;
-	    padding-top:0.8vw;
-		padding-bottom:0.8vw;
+	    padding:0px;
 		margin:0px;
 	}
 td:hover{
@@ -28,4 +27,10 @@ td:hover{
 	}
 td.current{
 	background-color:black;
+}
+td a{
+	width:100%;
+	display:block;
+	padding-top:10px;
+	padding-bottom:10px;
 }
