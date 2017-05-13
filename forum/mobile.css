@@ -54,21 +54,21 @@ span {
   float:right;
 }
 .links{
-	font-size:1.3em;
-	color:white;
-
+	font-size:20px;
+	color:4099FF;
+	text-decoration:none;
+	margin-left:5px;
 }
-.sentencelinks{
-color:4099FF;
-size:0.5em;
-text-decoration:none;
+	.sentencelinks{
+	color:4099FF;
+	text-decoration:none;
 
 }
 h1 {
-font-size:50px;
-font-weight:2em
-padding:0px;
-margin:0px;}
+	font-size:50px;
+	font-weight:2em
+	padding:0px;
+	margin:0px;}
 p{
 	padding:0px;
     margin:0px;
