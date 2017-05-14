@@ -107,7 +107,10 @@ input[type=text],input[type=password],input[type=number],input[type=date] {
     border-radius: 4px;
     box-sizing: border-box;
 }
-
+@keyframes submitbutton {
+    from {background-color: 4099FF;}
+    to {background-color: #009933;}
+}
 input[type=submit]{
     width:400px;
     background-color:4099FF;
@@ -118,6 +121,7 @@ input[type=submit]{
     border: none;
     border-radius: 4px;
     cursor: pointer;
+	-webkit-animation: submitbutton 4s ease infinite alternate;
 }
 input[type=radio]{
 	height:1.5vw;
