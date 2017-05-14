@@ -1,4 +1,4 @@
-body{ background-image:url(background.jpg);
+body{ background-image:url(background1.jpg);
 	background-repeat:no-repeat;
 	background-size:100% 100%;
 	font-family: "Lucida Sans", sans-serif;
@@ -52,7 +52,7 @@ span {
 }
 .links{
 	font-size:1.3em;
-	color:black;
+	color:white;
 	padding:10px;
 	text-decoration:none;
 }
@@ -61,27 +61,25 @@ span {
 	margin-left:10px;
 }
 .sentencelinks{
-color:black;
+color:white;
 size:0.5em;
 text-decoration:none;
 
 }
 .body{
-    color:black;
-	background-color:rgba(255,255,255,0.5);
+    color:white;
+	background-color:rgba(0,0,0,0.85);
 	font-weight:1.2em;
-	padding:75px 30px 70px;
+	padding:40px 30px;
 	width:462px;
 	margin-left: calc(50% - 230px);
 	margin-right:auto;
 	margin-top:75px;
-	border: 1px solid #ccc;
-    border-radius: 6px;
+    border-radius: 30px;
     box-sizing: border-box;
+	text-align:center;
 
 }
-.joinus{
-	padding:3px;}
 .foot{
   font-weight:1.2em;
   float:right;
@@ -96,12 +94,12 @@ p{
 		padding:0px;
 	margin:0px;
 	}
-input[type=text],input[type=password],input[type=number]   {
+input[type=text],input[type=password],input[type=number],input[type=date] {
     width:400px;
     padding: 12px 20px;
     margin: 6px 0;
 	font-size:18px;
-	color:black;
+	color:gray;
 	font-weight:1.2em;
     display: inline-block;
     border: 1px solid #ccc;
