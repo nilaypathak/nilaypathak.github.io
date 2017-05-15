@@ -58,7 +58,7 @@ span {
 	text-decoration:none;
 }
 .links:hover{
-	transform:scale(1.2);
+	font-size:1.45em;
 	
 }
 .sentencelinks{
