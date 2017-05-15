@@ -1,0 +1,54 @@
+body{
+	margin:0px;
+	background-image: url("home_back.jpg");
+	
+}
+@keyframes textcolor1 {
+    from {color: white;}
+    to {color: rgb(255, 153, 0);}
+}
+table{
+		table-layout:fixed;
+		border-collapse:collapse;
+		width:96%;
+		text-align:center;
+		padding :0px;
+		background-color:#800000;
+		margin:1vw 2vw;
+		font-weight:2em;
+        font-size:1.5vw;
+		border-radius:6px;
+		animation:nav 0.7s ;
+
+	}
+td	{   max-width:25%;
+	    padding:0px;
+		margin:0px;
+	-webkit-animation: textcolor1 4s ease infinite alternate;
+	}
+td:hover{
+        border-radius:6px;
+		background-color:#ffb3b3;
+	}
+td.current{
+	background-color:black;
+}
+td a{
+	width:100%;
+	display:block;
+	padding-top:10px;
+	padding-bottom:10px;
+}
+@keyframes nav
+{
+	0%
+	{
+		position: relative;
+		top: -40px;
+	}
+	100%
+	{
+		position: relative;
+		top: 0px;
+	}
+}

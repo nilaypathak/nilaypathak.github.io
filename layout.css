@@ -1,0 +1,151 @@
+body{
+background-color:black;
+background-image:url(page_back1.jpg);
+font-family: "Arial Black";
+color:white;
+text-align:center;
+background-repeat:no-repeat;
+background-size:100vw 110vw;
+
+}
+
+.yellow{
+	color:rgb(255, 153, 0);
+}
+a{color:white;
+text-decoration:none;}
+.contact{
+margin:1vw 8vw;
+width:60%;
+background-color:transparent;
+
+}
+.container{
+background-color:rgba(0, 0, 0, 0.45);
+border:solid 0.1vw black;
+width:90%;
+margin:5%;
+border-radius:4px;
+box-sizing: border-box;
+height:42vw;
+position:absolute;
+top:5%;
+z-index:-1;
+}
+.row{
+	width:100%;
+	float:left;
+	margin:1vw;
+	box-sizing: border-box;
+	z-index:+10;
+	height:560px;
+}
+[class*="col-"] {
+    float: left;
+    box-sizing: border-box;
+   
+	height:550px;
+	margin:0.25vw;
+	z-index:5;
+}
+[class*="col-"]:hover{
+transform:scale(1.01);
+}
+.col-1{
+	width:48%;
+	font-size:2.5vw;
+	padding-top:5vw;
+	padding-left:3vw;
+	animation:column1 0.8s ;
+	
+	
+}
+.col-2{
+	width:0.8%;
+	height:37vw;
+	background-color:white;
+	border-radius:4px;
+	margin-top:3.2vw;
+	}
+.col-3{
+	width:45%;
+	font-size:1.7vw;
+	padding:4vw 0vw;
+	line-height:2vw;
+	animation:column2 1.6s ;
+	}
+@keyframes column1
+{
+	0%, 40%
+	{
+		position: relative;
+		left: -1500px;
+	}
+
+	100%
+	{
+		position: relative;
+		left: 0px;
+	}
+}
+@keyframes column2
+{
+	0%, 40%
+	{
+		position: relative;
+		left: 1500px;
+	}
+
+	100%
+	{
+		position: relative;
+		left: 0px;
+	}
+}
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+@keyframes iconscolor {
+    from {border-color:yellow;}
+    to {border-color: black;}
+}
+.icons{
+height:3vw;
+transition:transform 1s,height 1s,border;
+border:solid black 0.5vw;
+-webkit-animation: iconscolor 3s ease infinite alternate;
+}
+.icons:hover{
+transform: rotate(360deg);
+height:6vw;
+border-color:yellow;
+-webkit-animation: iconscolor 3s ease infinite alternate;
+}
+td:hover{background-color:transparent;}
+li{
+margin:1.5vw;}
+@media only screen and (max-width: 768px){
+	body{
+		background-size:100% 130%;
+	}
+	td{font-size:3vw;}
+	[class*="col-"] { width:98%;
+		}
+	.col-1{ height:30vw;font-size:3vw;padding:1vw 0px;}
+	.col-2{ height:1.5vw;}
+	.col-3{ height:30%;line-height:6vw;
+			font-size:4vw;padding-top:1vw;
+			margin:5vw;width:88%;
+		   }
+	.container{height:120%;}
+	.contact{
+			margin:1vw 17vw;
+			}
+	.icons{
+			width:6vw;
+			height:6vw;}
+	td a{ padding-top:4vw; padding-bottom:4vw; }
+	}
+	
