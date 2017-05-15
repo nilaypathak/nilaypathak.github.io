@@ -1,0 +1,149 @@
+body{
+  margin:0px;
+ }
+img.topbar {
+     width:100%;
+	 height:47px;
+	 position:fixed;
+	 top:0px;
+}
+img.logo {
+	width:22px;
+	height:22px;
+	z-index:+1;
+	position:relative;
+	top:13px;
+	left:13px;
+	
+}
+.logodiv{
+	
+	width:49px;
+	height:43px;
+	position:fixed;
+	top:0px;
+	left:50.5%;
+	z-index:+1;
+}
+.logodiv:hover{
+border-bottom: solid rgb(0, 138, 230) 4px;}
+p.jointwi{
+	   font-family: "Trebuchet",sans-serif;
+	font-size:30px;
+	margin-bottom:20px;
+}
+pre{
+	   font-family: "Trebuchet",sans-serif;
+	font-size:13px;
+	position:fixed;
+	left:70%;
+	top:14px;
+	margin:0px;
+	color:white;
+	
+}
+.navbarlink{
+	color:white;
+	text-decoration:none;
+}
+.navbarlink:hover{
+	color:rgb(26, 117, 255);
+	text-decoration:underline;
+}
+input[type=text],input[type=password]  {
+    width:400px;
+    padding: 12px 20px;
+    margin: 6px 0;
+	font-size:18px;
+    display: inline-block;
+    box-sizing: border-box;
+	border:1px solid #eee;
+	color:black;
+	border-radius:3px;
+	height: auto;
+	outline: 0;
+
+}
+
+input[type=submit]{
+    width:400px;
+    background-color:4099FF;
+    color: white;
+	font-size:18px;
+    padding: 12px 20px;
+    margin: 6px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+select{
+	border:none;
+	background-color:transparent;
+	color:white;
+}
+input:focus{
+	border-color:#1da1f2;
+
+}
+
+.link1{
+color:4099FF;
+text-decoration:none;
+}
+.link1:hover{
+color:4099FF;
+text-decoration:underline;
+}
+
+.foot{
+	   font-family: "Trebuchet",sans-serif;
+	font-size:0.8em;
+	color:rgb(115, 115, 115);
+	margin-bottom:10px;
+	margin-top:10px;
+}
+.center{
+    font-family: "Trebuchet",sans-serif;
+	width:402px;
+	font-size:0.95em;
+	margin-left:35vw;
+	margin-top:140px;
+}
+.adv{
+font-size:1.2em;}
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    width:366px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+.droptext{
+	margin:0px;
+	padding:0px;
+	color:rgb(115, 115, 115);
+}
+option{
+	color:black;
+}
+option:hover{
+	color:white;
+	background-color:blue;
+}
+input::-webkit-input-placeholder {
+	color: #AAB8C1;
+    font-weight: normal;
+    font-size: 18px;
+	font-style:normal;
+}
