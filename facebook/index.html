@@ -1,0 +1,257 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link href="favicon.png" rel="icon" type="image/x-icon" />
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<title>Facebook - Log In or Sign Up</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script>
+var a=0,b=0,c=0,d=0;
+</script>
+		</head>
+<body>
+<div class="header">
+	<div class="header_body center">
+	<div class="logo">
+	<a href="fb.html" title="Go to Facebook home">
+	<img src="sf.png" height="100%" /></a>
+	</div>
+	<div class="login">
+	<form>
+		<table cellspacing="0" class="login-table">
+		<tr>
+		<td class="label">
+		<label for="email">Email or Phone</label>
+		</td>
+		<td class="label">
+		<label for="password">Password</label>
+		</td>
+		</tr>
+		<tr>
+		<td class="credentials">
+		<input type="email" name="email_phone" id="email">
+		</td>
+		<td class="credentials">
+		<input type="password" name="password" id="password">
+		</td>
+		<td class="credentials">
+		<input type="submit" value="Log In" id="login_button">
+		</td>
+		</tr>
+		<tr>
+		<td>
+		</td>
+		<td class="credentials" >
+		<a href="#" class="link_header"><div id="hide"> Forgotten account?</div></a>
+		</td>
+		</tr>
+		</table>
+		</form>
+	</div>
+	</div>
+</div>
+<div class="mid">
+	<div class="mid_body center">
+	<div  class="mid-left">
+			<div class="left-text">
+			Facebook helps you connect and share with the people in your life.
+			</div>
+			<div class="left-image">
+			<img src="fbback.png" />
+			</div>
+	</div>
+	<div  class="mid-right">
+		<div class="right-row1">
+				 			<h1>
+				 				Create an account
+				 			</h1>
+				 			<span id="free">
+				 				It's free and always will be.
+				 			</span>
+				 		</div>
+				 		<form class="create-form">
+				 			<div id="name">
+				 				<div id="firstname">
+				 					<input type="text" name="firstname" id="red57" class="inputField short" placeholder="First name">
+				 				</div>
+				 			    <div id="surname">
+				 					<input type="text" name="surname" id="red58" class="inputField short" placeholder="Surname">
+				 				</div>
+				 			</div>
+				 			<div id="email-phone">
+				 				<input type="text" name="email" id="red59"class="inputField long" placeholder="Mobile number or email address">
+				 			</div>
+				 			<div id="psswrd">
+				 				<input type="password" name="pwd" id="red60" class="inputField long" placeholder="New password">
+				 			</div>
+				 			<div id="dob">
+				 				<span id="dob-label">Birthday</span>
+				 				<div id="dob-date">
+					 				<select id="day" name="day">
+					 					<option value="0" selected="1">Day</option>
+					 					<script>
+											var a;
+											for(a=1;a<=31;a++)
+											document.write("<option value="+a+">"+a+"</option>");
+											
+											</script>
+									</select>
+									</select>
+								    <select id="month" name="month">
+										<option value="0" selected="1">Month</option>
+										<option value="1">Jan</option>
+										<option value="2">Feb</option>
+										<option value="3">Mar</option>
+										<option value="4">Apr</option>
+										<option value="5">May</option>
+										<option value="6">Jun</option>
+										<option value="7">Jul</option>
+										<option value="8">Aug</option>
+										<option value="9">Sep</option>
+										<option value="10">Oct</option>
+										<option value="11">Nov</option>
+										<option value="12">Dec</option>
+									</select>
+								 <select id="year" name="year">
+								 <option value="0" selected="2017">Year</option>
+										<script>
+											var a;
+											for(a=2017;a>=1905;a--)
+											document.write("<option value="+a+">"+a+"</option>");
+											</script>
+									</select>
+								<a href="#" id="dob-why" class="links">Why do I need to provide my date of birth?</a>
+				 				</div>
+				 			</div>
+				 			<div id="gender">
+				 				<input type="radio" name="gender" value="1" id="femle">
+				 			 <label for="female">Female</label>
+				 			 <input type="radio" name="gender" value="2" id="male">
+				 			<label for="male">Male</label>
+				 			</div>
+				 			<div id="terms">
+				 				<p>
+				 					By clicking Create an account, you agree to our <a href="#" class="links">Terms</a> and confirm that you have read our <a href="#" class="links">Data Policy</a>, including our <a href="#" class="links"> Cookie Use Policy</a>. You may receive SMS message notifications from Facebook and can opt out at any time.
+				 				</p>
+				 			</div>
+				 			<button type="submit" name="submit" id="signup-button">
+				 				Create an account
+				 			</button>
+				 		</form>
+				 		<div id="msg">
+				 			<a href="#" class="links">Create a Page</a> for a celebrity, band or business.
+				 		</div>
+				 	</div>
+				</div>	
+	</div>
+	</div>
+</div>
+<div class="foot">
+	<div class="foot_body">
+		<div id="languages">
+		<ul>
+			<li class="lang current">English (UK)</li>
+			<li class="lang">বাংলা    </li>
+			<li class="lang"> हिन्दी</li>
+			<li class="lang">اردو</li>
+			<li class="lang">नेपाली</li>
+			<li class="lang">ଓଡ଼ିଆ</li>
+			<li class="lang">Español</li>
+			<li class="lang">Português(Brasil)</li>
+			<li class="lang">Français(France)</li>
+			<li class="lang">Deutsch</li>
+			<li class="lang">Italiano</li>
+			<li class="lang" ><button class="plus" title="Show more languages">+</button></li>
+		</ul>
+		</div>
+		<div id="menu">
+			<table id="menu-table">
+			<tr>
+				<td class="td-menu"><a href="#" class="menu-links">Sign Up</a></td>					
+				<td class="td-menu"><a href="#" class="menu-links">Log In</a></td>
+				<td class="td-menu"><a href="#" class="menu-links">Messenger</a></td>
+				<td class="td-menu"><a href="#" class="menu-links">Facebook Lite</a></td>
+				<td class="td-menu"><a href="#" class="menu-links">Mobile</a></td>
+				<td class="td-menu"><a href="#" class="menu-links">Find Friends</a></td>
+				<td class="td-menu"><a href="#" class="menu-links">People</a></td>
+				<td class="td-menu"><a href="#" class="menu-links">Pages</a></td>
+				<td class="td-menu"><a href="#" class="menu-links">Places</a></td>
+				<td class="td-menu"><a href="#" class="menu-links">Games</a></td>
+				<td class="td-menu"><a href="#" class="menu-links">Locations</a></td>
+			</tr>
+			<tr>
+							 			
+
+				<td class="td-menu"><a href="#" class="menu-links">Celebrities</a></td>
+				<td class="td-menu"><a href="#" class="menu-links">Marketplace</a></td>
+				<td class="td-menu"><a href="#" class="menu-links">Groups</a></td>
+				<td class="td-menu"><a href="#" class="menu-links">Recipes</a></td>
+				<td class="td-menu"><a href="#" class="menu-links">Moments</a></td>
+				<td class="td-menu"><a href="#" class="menu-links">Instagram</a></td>
+				<td class="td-menu"><a href="#" class="menu-links">About</a></td>
+				<td class="td-menu"><a href="#" class="menu-links">Create Advert</a></td>
+				<td class="td-menu"><a href="#" class="menu-links">Create Page</a></td>
+				<td class="td-menu"><a href="#" class="menu-links">Developers</a></td>
+				<td class="td-menu"><a href="#" class="menu-links">Careers</a></td>
+			</tr>
+			<tr>
+				<td class="td-menu"><a href="#" class="menu-links">Privacy</a></td>
+				<td class="td-menu"><a href="#" class="menu-links">Cookies</a></td>
+				<td class="td-menu"><a href="#" class="menu-links">AdChoices<img src="adchoice.png" width="13px"/></a></td>
+				<td class="td-menu"><a href="#" class="menu-links">Terms</a></td>
+				<td class="td-menu"><a href="#" class="menu-links">Help</a></td>
+			</tr>
+			</table>
+		</div>
+			<div class="copyright1"><span>&copy;Nilay Pathak 2017</span></div>
+	</div>
+</div>
+<script>
+$('html').click(function(e){
+    
+	if(e.target.id=='red57'){
+	$('#red57').css('border-color','#bdc7d8');
+	$('#red57').css('background-size','0px');
+	a=1;
+	}else{
+	if($('#red57').val().length<1&&a==1)
+	{$('#red57').css('border-color','red');
+	$('#red57').css('background-size','24px');}
+	}
+	});
+$('html').click(function(e){
+	if(e.target.id=='red58'){
+	$('#red58').css('border-color','#bdc7d8');
+	$('#red58').css('background-size','0px');
+	b=1;
+	}else{
+	if($('#red58').val().length<1&&b==1)
+	{$('#red58').css('border-color','red');
+	$('#red58').css('background-size','24px');}
+	}
+	});
+$('html').click(function(e){
+	if(e.target.id=='red59'){
+	$('#red59').css('border-color','#bdc7d8');
+	$('#red59').css('background-size','0px');
+	c=1;
+	}else{
+	if($('#red59').val().length<1&&c==1)
+	{$('#red59').css('border-color','red');
+	$('#red59').css('background-size','24px');}
+	}
+	});
+$('html').click(function(e){
+	if(e.target.id=='red60'){
+	$('#red60').css('border-color','#bdc7d8');
+	$('#red60').css('background-size','0px');
+	d=1;
+	}else{
+	if($('#red60').val().length<1&&d==1)
+	{$('#red60').css('border-color','red');
+	$('#red60').css('background-size','24px');}
+	}
+	});
+</script>
+</body>
+</html>
