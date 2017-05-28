@@ -1,0 +1,402 @@
+body{
+	font-family: Helvetica, Arial, sans-serif;
+	margin:0px;
+}
+.center{
+	margin:0 auto;
+	width:980px;
+}
+.header{
+	width:100%;
+	min-width: 980px;
+	height:83px;
+	background-color: #3b5998;
+    background-image: linear-gradient(#4e69a2, #3b5998 50%);
+    border-bottom: 1px solid #133783;
+    min-height: 42px;
+	box-sizing: border-box;
+	
+	}
+.header_body{
+	height:77px;
+	padding-top:13px;
+	box-sizing: border-box;
+}	
+.logo{
+	height:34px;
+	width:190px;
+	margin-top:17px;
+	float:left;
+}
+.login{
+	height:100%;
+	width:392px;
+	float:right;
+	box-sizing: border-box;
+	}
+.label{
+	width:165px;
+	height:17px;
+	margin:0px;
+	padding:0px 0px 4px 14px;
+	font-size:12px;
+	color:white;
+}
+#email,#password{
+	font-size: 11px;
+    width: 150px;
+    height: 22px;
+    padding: 3px 3px 4px 3px;
+    margin: 0;
+	box-sizing:border-box;
+    border: 1px solid #1d2a5b;
+
+}
+#login_button{
+    color: white;
+    width: 50px;
+    padding: 3px 6px;
+    background-color: #4267b2;
+    border: 1px solid #29487d;
+    border-radius: 2px;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 18px;
+    vertical-align: top;
+    text-decoration: none;
+	cursor:pointer;
+	
+}
+#login_button:hover{
+	background-color: #3b5998;
+}
+.credentials{
+	width:165px;
+	height:25px;
+	margin:0px;
+	padding:0px 0px 0px 14px;
+	box-sizing: border-box;
+}
+.link_header{
+	color:#9ab1d5;
+	font-size:12px;
+	text-decoration:none;
+}
+.mid{
+	width: 100%;
+    min-width: 980px;
+    display: flex;
+    background: linear-gradient(white, #d3d8e8);
+
+}
+.foot{
+	width:980px;
+	margin:0px auto;
+	min-width: 980px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+	width:980px;
+	margin:8px auto 8px;
+	padding-bottom:7px;
+	border-bottom:solid #dbdde0 1px;
+	}
+
+li{
+    float: left;
+	padding-right:10px;
+	font-size:12px;
+	color:#355898;
+}
+li:hover{
+	text-decoration:underline;
+	cursor:pointer;
+}
+.current{
+		color:#737373;
+}
+
+.current:hover{
+	text-decoration:none;
+	cursor:text;
+}
+.plus{
+	border:solid #cfd1d5 1px;
+	cursor:pointer;
+	width:27px;
+	padding:0px;
+	margin:0px;
+	background-color:#f6f7f9;
+	border-radius:2px;
+	font-size:17px;
+	font-weight:bold;
+	color:#636a79;
+	
+}
+.plus:hover{
+	background-color:#e1e5ef;
+	border:solid #cfd1d5 1px;
+}
+#menu-table{
+	width:930px;
+}
+#menu{
+	box-sizing:border-box;
+	float:left;
+	width:100%;
+	position:relative;
+	top:0px;
+	 position:relative;
+	top:0px;
+}
+.td-menu{
+	width:82px;
+	padding:2.5px 2px;
+}
+.menu-links{
+	text-decoration:none;
+	font-size:12px;
+	color:#355898;
+}
+.menu-links:hover{
+text-decoration:underline;}
+.copyright1{
+
+    position:relative;
+	top:0px;
+	width:400px;
+	margin:10px auto;
+	height:25px;
+	float:left;
+	box-sizing:border-box;
+	font-size:11px;
+	color:#737373;
+	padding-top:10px;
+	padding-bottom:25px;
+	
+}
+.mid-left{
+	width:580px;
+	display: inline-block;
+	float:left;
+}
+.mid-right{
+	display: inline-block;
+	width: 400px;
+	padding-bottom: 30px;
+	float:right;
+}
+.left-text{
+	color: #0e385f;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 29px;
+    margin-top: 40px;
+    width: 450px;
+    word-spacing: -1px;
+}
+#right-body{
+	display: block;
+	width: 400px;
+	padding-bottom: 30px;
+}
+
+.right-row1{
+	padding: 20px 0;
+	height: 78.3px;
+	
+}
+
+.right-row1 h1{
+	display: block;
+	margin: 0;
+	padding: 0;
+	margin-bottom: 10px;
+	font-size: 36px;
+	color: #333333;
+}
+
+#free{
+	font-size: 19px;
+	color: #1d2129;
+	
+}
+
+.create-form{
+	display: block;
+}
+
+#name{
+	height: 48.667px;
+	display: block;
+}
+
+.inputField{
+	margin-bottom: 10px;
+	height: 22.667px;
+	padding: 8px 9px 6px 9px;
+	border-radius: 5px;
+	font-size: 18px;
+	border: 1px solid #bdc7d8;
+	box-sizing:content-box;
+	background-image: url('alert.png'); 
+    background-position: right; 
+    background-repeat: no-repeat;
+	background-size:0px;
+}
+.inputField:focus{
+
+}
+.short{
+	width: 174px;
+}
+
+.long{
+	width: 380px;
+}
+
+::-webkit-input-placeholder{
+	color: #999999;
+}
+
+#firstname{
+	width: 194px;
+	margin-right: 8px;
+	display: inline-block;
+}
+
+#surname{
+	width: 194px;
+	display: inline-block;
+	float: right;
+}
+
+#email-phone, #psswrd{
+	display: block;
+}
+
+#dob{
+	display: block;
+	padding-top:5px;
+}
+
+#dob-label{
+	color: #1d2129;
+	font-size: 18px;
+	display: block;
+	margin-top: 10px;
+	margin-bottom: 5px;
+}
+
+#dob-date{
+	display: inline-block;
+}
+
+
+#dob-date select{
+	height: 30px;
+	display: inline-block;
+	vertical-align: middle;
+	color: black;
+	font-size: 13px;
+	padding: 5px;
+	border: 1px solid #bdc7d8;
+}
+
+
+
+#dob-why{
+	margin-left: 10px;
+	font-size: 11px;
+	max-width: 150px;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.links{
+	color: #365899;
+	text-decoration: none;
+}
+
+.links:hover{
+	text-decoration: underline;
+}
+
+#gender{
+	display: block;
+	margin-top: 10px;
+	height: 21.33px;
+	padding: 5px 0 5px 4px; 
+	color: #1d2129;
+	font-size: 18px;
+}
+
+#gender input{
+	margin: 3px 3px 0 5px;
+	display: inline-block;
+	vertical-align: top;
+}
+
+#gender label{
+	padding: 0 10px 0 3px;
+	display: inline-block;
+	cursor: pointer;
+}
+
+#gender label[for="female"]{
+	padding-right: 10px;
+	margin-right: 8px;
+}
+
+#terms{
+	display: block;
+	color: #777777;
+	width: 316px;
+	font-size: 11px;
+	line-height:15px;
+}
+
+#signup-button{
+	min-width: 159.7px;
+	min-height: 23.3px;
+	margin: 10px 0 5px;
+	padding: 7px 20px;
+	line-height: 126%;
+	font-family: 'Freight Sans Bold', Helvetica, Arial, sans-serif !important;
+	font-weight: bold;
+	letter-spacing: 0.3px;
+	color: white;
+	text-shadow: 0 1px 2px rgba(0,0,0,.5);
+	cursor: pointer;
+	font-size: 18px;
+	text-align: center;
+	background: linear-gradient(#67ae55, #578843);
+	background-color: #69a74e;
+	box-shadow: inset 0 1px 1px #a4e388;
+	border: 1px solid;
+	border-radius: 5px;
+	border-color: #3b6e22 #3b6e22 #2c5115;
+
+}
+
+#signup-button:hover{
+	background: linear-gradient(#79bc64, #578843);
+}
+
+#msg{
+	display: block;
+	color: #666666;
+	font-size: 13px;
+	font-weight: bold;
+	margin-top: 10px;
+	padding-top: 15px;
+}
+@media screen and (min-width: 4000px) {
+	#hide{
+		display:none;
+	}
+}
