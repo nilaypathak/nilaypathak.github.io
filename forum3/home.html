@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html>
+<head>
+			<meta charset="utf-8" />
+			<link href="favicon.png" rel="icon" type="image/x-icon" />
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+			<link href="desktop.css" type="text/css" rel="stylesheet"  />
+			<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+			<link href="style2.css" type="text/css" rel="stylesheet" />
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+			<script src="myScript.js">
+			</script>
+	
+</head>
+
+<body>
+		<div class="navbar" style="z-index:2;">
+			<ul>
+			  <li><h1>nil.co</h1><p class="caption">The ultimate forum for coders</p></li>
+			  <li class="right circle-propic" style="cursor:pointer" onclick="drop()" id="circular-propic"> 
+				  
+				  </li>
+			  <li class="right"><input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for threads.."></li>
+			  
+			</ul>
+		</div>
+		<div id="myDropdown" class="dropdown-content">
+						<a href="#profile"><i class="fa fa-drivers-license-o"></i> view profile</a>
+						<a href="#settings"><i class="material-icons">settings</i> Settings</a>
+						<a href="#logout"><i class="material-icons">power_settings_new</i> Logout</a>
+				  </div>
+		<div class="hamburger">
+		<span style="font-size:30px;cursor:pointer" onclick="openNav()" id="hamburger">&#9776;</span>
+		</div>
+		
+		<div id="mySidenav" class="sidenav">
+		  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()" >&times;</a>
+		  <a href="#" class="current-sidemenu"style="color:white;"><img src="home-ico.png" width="20px"/> Home</a>
+		  <a href="javascript:void(0)" onclick="droprecent()"><img src="recent-ico.png" width="22px"/> Recently viewed <img src="down-arrow.png" width="10px"/></a>
+		  <div id="recent-threads" class="recent-threads1">
+		    <a href="threadC.html">C programming Doubts</a>
+			<a href="#">PHP programming Doubts</a>
+			<a href="#">Python programming Doubts</a>
+		  </div>
+		  <a href="javascript:void(0)" onclick="dropcategories()"><img src="categories-ico.png" width="20px"/> Categories  <img src="down-arrow.png" width="10px"/></a>
+		  <div id="categories" class="recent-threads1">
+		    <a href="#">C </a>
+			<a href="#">PHP </a>
+			<a href="#">Python </a>
+			<a href="#">Django </a>
+			<a href="#">Java </a>
+			<a href="#">Android </a>
+			<a href="#">All Categories </a>
+		  </div>
+		  <a href="#"><img src="contact-ico.png" width="20px"/> Contact</a>
+		</div>
+
+<div id="main">
+
+    <div class="main-heading">
+		  <div class="all-activity">All Activity</div>
+		  <button class="button" onclick="newTopic()">+ New Topic</button>
+    </div>
+	<div class="searchbox"><input type="text" id="myInput2" onkeyup="myFunction2()" placeholder="Search for threads.." ></div>
+    <div class="thread-list">
+	<table id="myTable">
+	<tr class="tr tr-head">
+		<th class="td-thread-pic th">Thread pic</th>
+		<th class="thread-data th">Thread Description</th>
+		<th class="replys th">Recent replys</th>
+		<th class="thread-thumbs th">Upvotes and Downvotes</th>
+	</tr>
+	<tr class="tr" onclick="location.href='threadC.html'">
+	  <td class="td-thread-pic td"><img src="c.png" class="thread-pic" width="64px" /></td>
+	  <td class="thread-data td">C programming doubts(Click here,this one works)
+				  <div class="description">
+					<div class="propic">	<img src="propic.png" width="30px"/> </div>
+					<div class="username">
+					Date: 12 May,2017<br />
+					Nilay Pathak</div>
+				  </div>
+	  </td>
+	  <td class="replys td">+5</td>
+	  <td class="thread-thumbs td"><i class="material-icons" style="font-size:24px;color:orange">thumb_up</i>12 <i class="material-icons" style="font-size:24px;color:orange">thumb_down</i>4</td>
+	</tr>
+	<tr class="tr">
+	  <td class="td-thread-pic td"><img src="php.png" class="thread-pic" width="64px" /></td>
+	  <td class="thread-data td">PHP programming doubts
+				  <div class="description">
+					<div class="propic">	<img src="propic.png" width="30px"/> </div>
+					<div class="username">
+					Date: 19 May,2017<br />
+					Nilay Pathak</div>
+				  </div>
+	  </td>
+	  <td class="replys td">+11</td>
+	  <td class="thread-thumbs td"><i class="material-icons" style="font-size:24px;color:orange">thumb_up</i>19 <i class="material-icons" style="font-size:24px;color:orange">thumb_down</i>7</td>
+	</tr>
+	<tr class="tr">
+	  <td class="td-thread-pic td"><img src="c.png" class="thread-pic" width="64px" /></td>
+	  <td class="thread-data td">C programming doubts
+				  <div class="description">
+					<div class="propic">	<img src="propic.png" width="30px"/> </div>
+					<div class="username">
+					Date: 12 May,2017<br />
+					Nilay Pathak</div>
+				  </div>
+	  </td>
+	  <td class="replys td">+5</td>
+	  <td class="thread-thumbs td"><i class="material-icons" style="font-size:24px;color:orange">thumb_up</i>12 <i class="material-icons" style="font-size:24px;color:orange">thumb_down</i>4</td>
+	</tr>
+	<tr class="tr">
+	  <td class="td-thread-pic td"><img src="python.jpg" class="thread-pic" width="64px" /></td>
+	  <td class="thread-data td">Python programming doubts
+				  <div class="description">
+					<div class="propic">	<img src="propic.png" width="30px"/> </div>
+					<div class="username">
+					Date: 25 May,2017<br />
+					Nilay Pathak</div>
+				  </div>
+	  </td>
+	  <td class="replys td">+7</td>
+	  <td class="thread-thumbs td"><i class="material-icons" style="font-size:24px;color:orange">thumb_up</i>21 <i class="material-icons" style="font-size:24px;color:orange">thumb_down</i>2</td>
+	</tr>
+	<tr class="tr">
+	  <td class="td-thread-pic td"><img src="php.png" class="thread-pic" width="64px" /></td>
+	  <td class="thread-data td">PHP programming doubts
+				  <div class="description">
+					<div class="propic">	<img src="propic.png" width="30px"/> </div>
+					<div class="username">
+					Date: 19 May,2017<br />
+					Nilay Pathak</div>
+				  </div>
+	  </td>
+	  <td class="replys td">+11</td>
+	  <td class="thread-thumbs td"><i class="material-icons" style="font-size:24px;color:orange">thumb_up</i>19 <i class="material-icons" style="font-size:24px;color:orange">thumb_down</i>7</td>
+	</tr>
+	<tr class="tr">
+	  <td class="td-thread-pic td"><img src="c.png" class="thread-pic" width="64px" /></td>
+	  <td class="thread-data td">C programming doubts
+				  <div class="description">
+					<div class="propic">	<img src="propic.png" width="30px"/> </div>
+					<div class="username">
+					Date: 12 May,2017<br />
+					Nilay Pathak</div>
+				  </div>
+	  </td>
+	  <td class="replys td">+5</td>
+	  <td class="thread-thumbs td"><i class="material-icons" style="font-size:24px;color:orange">thumb_up</i>12 <i class="material-icons" style="font-size:24px;color:orange">thumb_down</i>4</td>
+	</tr>
+	<tr class="tr">
+	  <td class="td-thread-pic td"><img src="python.jpg" class="thread-pic" width="64px" /></td>
+	  <td class="thread-data td">Python programming doubts
+				  <div class="description">
+					<div class="propic">	<img src="propic.png" width="30px"/> </div>
+					<div class="username">
+					Date: 25 May,2017<br />
+					Nilay Pathak</div>
+				  </div>
+	  </td>
+	  <td class="replys td">+7</td>
+	  <td class="thread-thumbs td"><i class="material-icons" style="font-size:24px;color:orange">thumb_up</i>21 <i class="material-icons" style="font-size:24px;color:orange">thumb_down</i>2</td>
+	</tr>
+	<tr class="tr">
+	  <td class="td-thread-pic td"><img src="php.png" class="thread-pic" width="64px" /></td>
+	  <td class="thread-data td">PHP programming doubts
+				  <div class="description">
+					<div class="propic">	<img src="propic.png" width="30px"/> </div>
+					<div class="username">
+					Date: 19 May,2017<br />
+					Nilay Pathak</div>
+				  </div>
+	  </td>
+	  <td class="replys td">+11</td>
+	  <td class="thread-thumbs td"><i class="material-icons" style="font-size:24px;color:orange">thumb_up</i>19 <i class="material-icons" style="font-size:24px;color:orange">thumb_down</i>7</td>
+	</tr>
+	<tr class="tr">
+	  <td class="td-thread-pic td"><img src="c.png" class="thread-pic" width="64px" /></td>
+	  <td class="thread-data td">C programming doubts
+				  <div class="description">
+					<div class="propic">	<img src="propic.png" width="30px"/> </div>
+					<div class="username">
+					Date: 12 May,2017<br />
+					Nilay Pathak</div>
+				  </div>
+	  </td>
+	  <td class="replys td">+5</td>
+	  <td class="thread-thumbs td"><i class="material-icons" style="font-size:24px;color:orange">thumb_up</i>12 <i class="material-icons" style="font-size:24px;color:orange">thumb_down</i>4</td>
+	</tr>
+	<tr class="tr">
+	  <td class="td-thread-pic td"><img src="python.jpg" class="thread-pic" width="64px" /></td>
+	  <td class="thread-data td">Python programming doubts
+				  <div class="description">
+					<div class="propic">	<img src="propic.png" width="30px"/> </div>
+					<div class="username">
+					Date: 25 May,2017<br />
+					Nilay Pathak</div>
+				  </div>
+	  </td>
+	  <td class="replys td">+7</td>
+	  <td class="thread-thumbs td"><i class="material-icons" style="font-size:24px;color:orange">thumb_up</i>21 <i class="material-icons" style="font-size:24px;color:orange">thumb_down</i>2</td>
+	</tr>
+	<tr class="tr">
+	  <td class="td-thread-pic td"><img src="c.png" class="thread-pic" width="64px" /></td>
+	  <td class="thread-data td">C programming doubts
+				  <div class="description">
+					<div class="propic">	<img src="propic.png" width="30px"/> </div>
+					<div class="username">
+					Date: 12 May,2017<br />
+					Nilay Pathak</div>
+				  </div>
+	  </td>
+	  <td class="replys td">+5</td>
+	  <td class="thread-thumbs td"><i class="material-icons" style="font-size:24px;color:orange">thumb_up</i>12 <i class="material-icons" style="font-size:24px;color:orange">thumb_down</i>4</td>
+	</tr>
+	<tr class="tr">
+	  <td class="td-thread-pic td"><img src="c.png" class="thread-pic" width="64px" /></td>
+	  <td class="thread-data td">C programming doubts
+				  <div class="description">
+					<div class="propic">	<img src="propic.png" width="30px"/> </div>
+					<div class="username">
+					Date: 12 May,2017<br />
+					Nilay Pathak</div>
+				  </div>
+	  </td>
+	  <td class="replys td">+5</td>
+	  <td class="thread-thumbs td"><i class="material-icons" style="font-size:24px;color:orange">thumb_up</i>12 <i class="material-icons" style="font-size:24px;color:orange">thumb_down</i>4</td>
+	</tr>
+	<tr class="tr">
+	  <td class="td-thread-pic td"><img src="php.png" class="thread-pic" width="64px" /></td>
+	  <td class="thread-data td">PHP programming doubts
+				  <div class="description">
+					<div class="propic">	<img src="propic.png" width="30px"/> </div>
+					<div class="username">
+					Date: 19 May,2017<br />
+					Nilay Pathak</div>
+				  </div>
+	  </td>
+	  <td class="replys td">+11</td>
+	  <td class="thread-thumbs td"><i class="material-icons" style="font-size:24px;color:orange">thumb_up</i>19 <i class="material-icons" style="font-size:24px;color:orange">thumb_down</i>7</td>
+	</tr>
+	<tr class="tr">
+	  <td class="td-thread-pic td"><img src="c.png" class="thread-pic" width="64px" /></td>
+	  <td class="thread-data td">C programming doubts
+				  <div class="description">
+					<div class="propic">	<img src="propic.png" width="30px"/> </div>
+					<div class="username">
+					Date: 12 May,2017<br />
+					Nilay Pathak</div>
+				  </div>
+	  </td>
+	  <td class="replys td">+5</td>
+	  <td class="thread-thumbs td"><i class="material-icons" style="font-size:24px;color:orange">thumb_up</i>12 <i class="material-icons" style="font-size:24px;color:orange">thumb_down</i>4</td>
+	</tr>
+	<tr class="tr">
+	  <td class="td-thread-pic td"><img src="python.jpg" class="thread-pic" width="64px" /></td>
+	  <td class="thread-data td">Python programming doubts
+				  <div class="description">
+					<div class="propic">	<img src="propic.png" width="30px"/> </div>
+					<div class="username">
+					Date: 25 May,2017<br />
+					Nilay Pathak</div>
+				  </div>
+	  </td>
+	  <td class="replys td">+7</td>
+	  <td class="thread-thumbs td"><i class="material-icons" style="font-size:24px;color:orange">thumb_up</i>21 <i class="material-icons" style="font-size:24px;color:orange">thumb_down</i>2</td>
+	</tr>
+	<tr class="tr">
+	  <td class="td-thread-pic td"><img src="php.png" class="thread-pic" width="64px" /></td>
+	  <td class="thread-data td">PHP programming doubts
+				  <div class="description">
+					<div class="propic">	<img src="propic.png" width="30px"/> </div>
+					<div class="username">
+					Date: 19 May,2017<br />
+					Nilay Pathak</div>
+				  </div>
+	  </td>
+	  <td class="replys td">+11</td>
+	  <td class="thread-thumbs td"><i class="material-icons" style="font-size:24px;color:orange">thumb_up</i>19 <i class="material-icons" style="font-size:24px;color:orange">thumb_down</i>7</td>
+	</tr>
+	<tr class="tr">
+	  <td class="td-thread-pic td"><img src="c.png" class="thread-pic" width="64px" /></td>
+	  <td class="thread-data td">C programming doubts
+				  <div class="description">
+					<div class="propic">	<img src="propic.png" width="30px"/> </div>
+					<div class="username">
+					Date: 12 May,2017<br />
+					Nilay Pathak</div>
+				  </div>
+	  </td>
+	  <td class="replys td">+5</td>
+	  <td class="thread-thumbs td"><i class="material-icons" style="font-size:24px;color:orange">thumb_up</i>12 <i class="material-icons" style="font-size:24px;color:orange">thumb_down</i>4</td>
+	</tr>
+	<tr class="tr">
+	  <td class="td-thread-pic td"><img src="python.jpg" class="thread-pic" width="64px" /></td>
+	  <td class="thread-data td">Python programming doubts
+				  <div class="description">
+					<div class="propic">	<img src="propic.png" width="30px"/> </div>
+					<div class="username">
+					Date: 25 May,2017<br />
+					Nilay Pathak</div>
+				  </div>
+	  </td>
+	  <td class="replys td">+7</td>
+	  <td class="thread-thumbs td"><i class="material-icons" style="font-size:24px;color:orange">thumb_up</i>21 <i class="material-icons" style="font-size:24px;color:orange">thumb_down</i>2</td>
+	</tr>
+	<tr class="tr">
+	  <td class="td-thread-pic td"><img src="php.png" class="thread-pic" width="64px" /></td>
+	  <td class="thread-data td">PHP programming doubts
+				  <div class="description">
+					<div class="propic">	<img src="propic.png" width="30px"/> </div>
+					<div class="username">
+					Date: 19 May,2017<br />
+					Nilay Pathak</div>
+				  </div>
+	  </td>
+	  <td class="replys td">+11</td>
+	  <td class="thread-thumbs td"><i class="material-icons" style="font-size:24px;color:orange">thumb_up</i>19 <i class="material-icons" style="font-size:24px;color:orange">thumb_down</i>7</td>
+	</tr>
+	<tr class="tr">
+	  <td class="td-thread-pic td"><img src="c.png" class="thread-pic" width="64px" /></td>
+	  <td class="thread-data td">C programming doubts
+				  <div class="description">
+					<div class="propic">	<img src="propic.png" width="30px"/> </div>
+					<div class="username">
+					Date: 12 May,2017<br />
+					Nilay Pathak</div>
+				  </div>
+	  </td>
+	  <td class="replys td">+5</td>
+	  <td class="thread-thumbs td"><i class="material-icons" style="font-size:24px;color:orange">thumb_up</i>12 <i class="material-icons" style="font-size:24px;color:orange">thumb_down</i>4</td>
+	</tr>
+	<tr class="tr">
+	  <td class="td-thread-pic td"><img src="python.jpg" class="thread-pic" width="64px" /></td>
+	  <td class="thread-data td">Python programming doubts
+				  <div class="description">
+					<div class="propic">	<img src="propic.png" width="30px"/> </div>
+					<div class="username">
+					Date: 25 May,2017<br />
+					Nilay Pathak</div>
+				  </div>
+	  </td>
+	  <td class="replys td">+7</td>
+	  <td class="thread-thumbs td"><i class="material-icons" style="font-size:24px;color:orange">thumb_up</i>21 <i class="material-icons" style="font-size:24px;color:orange">thumb_down</i>2</td>
+	</tr>
+	<tr class="tr">
+	  <td class="td-thread-pic td"><img src="python.jpg" class="thread-pic" width="64px" /></td>
+	  <td class="thread-data td">Python programming doubts
+				  <div class="description">
+					<div class="propic">	<img src="propic.png" width="30px"/> </div>
+					<div class="username">
+					Date: 25 May,2017<br />
+					Nilay Pathak</div>
+				  </div>
+	  </td>
+	  <td class="replys td">+7</td>
+	  <td class="thread-thumbs td"><i class="material-icons" style="font-size:24px;color:orange">thumb_up</i>21 <i class="material-icons" style="font-size:24px;color:orange">thumb_down</i>2</td>
+	</tr>
+  </div>
+</div>
+
+<div id="newtopic1">
+
+<a href="javascript:void(0)" class="closebtn-newtopic" onclick="closeNewTopic()" >&times;</a>
+		<div id="row1">
+			<div class="col1"><img src="propic.png" width="60px"/></div>
+			<div class="col2">Nilay Pathak</div>
+			<div class="col3" id="date"></div>
+		</div>
+		<div id="row1">
+			<form>
+            <textarea id="title" placeholder="Title"></textarea>
+            </form>
+		</div>
+		<div id="row1">
+			
+			<button onclick="boldSelection ()" class="notselected button-style" id="bol"><b>B</b></button>
+	        <button onclick="italicsSelection ()"class="notselected button-style" id="italic"><i>I</i></button>
+	        <button onclick="underlineSelection ()"class="notselected button-style" id="under"><u>U</u></button><br/>
+            <form>
+			<textarea id="myArea" placeholder="Description of the thread...."></textarea>
+            </form>
+		</div>
+		<div id="row1">
+			<button class="button1" onclick="closeNewTopic()">Cancel</button>
+			<button class="button1" onclick="closeNewTopic()">Post</button>
+		</div>
+
+</div>
+<script>
+var now = new Date();
+var days = new Array('Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday');
+var months = new Array('January','February','March','April','May','June','July','August','September','October','November','December');
+var date = ((now.getDate()<10) ? "0" : "")+ now.getDate();
+function fourdigits(number) {
+return (number < 1000) ? number + 1900 : number;
+}
+today = days[now.getDay()] + ", " +
+months[now.getMonth()] + " " +
+date + ", " +
+(fourdigits(now.getYear())) ;
+document.getElementById("date").innerHTML = today;
+</script>
+<script>
+$.fn.followTo = function (pos) {
+    var $this = this,
+        $window = $(window);
+
+    $window.scroll(function (e) {
+        if ($window.scrollTop() > pos) {
+            $this.css({
+                position: 'fixed',
+                top: 130
+            });
+        } else {
+            $this.css({
+                position: 'absolute',
+                top: 230
+            });
+        }
+    });
+};
+$('#myInput2').followTo(130);
+</script>
+<div id="black-background">
+
+</div>
+
+
+
+</body>
+</html> 
