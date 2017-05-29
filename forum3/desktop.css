@@ -1,0 +1,164 @@
+body{ background-image:url(background1.jpg);
+	background-repeat:no-repeat;
+	background-size:100% 100% ;
+	background-attachment:fixed;
+	font-family: "Lucida Sans", sans-serif;
+	color:white;
+	margin:0px;
+	
+
+	
+}
+* {
+    box-sizing: border-box;
+}
+
+
+.head{
+padding:10px;
+
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+	    position:fixed;
+    padding: 0;
+    overflow: hidden;
+    background-color: #0085b2;
+	width:100%;
+	padding:0px 5vw 0px 8vw ;
+	-webkit-animation: submitbutton 4s ease infinite alternate;
+}
+
+li {
+    float: left;
+}
+li.right{
+	float:right;
+}
+li a {
+    display: block;
+    color: white;
+	font-size:15px;
+    text-align: center;
+    padding: 12px 1vw;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    background-color: #111;
+}
+h1 {
+	font-size:30px;
+	font-weight:2em;
+	padding:0px;
+	margin:0px 0px -4px 0px;}
+p.caption{ 
+	font-size:0.8em;
+	padding:0px;
+	margin:0px;
+	}
+.signup{
+	font-size:1.5em;
+	
+}
+.linker{    
+	margin:0px;
+	margin-right:1vw;
+	text-align:center;
+	font-size:2vw;
+	background-color:rgba(176,176,176,0.4);
+	transform:scale(1.01);
+	padding:1vw;
+	height:5vw;
+	width;8vw;
+	position:absolute;
+	left:85vw;
+	top:0%;
+	font-weight:1.2em;
+	}
+.toplink{
+display: block;
+width:100%;
+color:white;
+text-decoration:none;
+}
+span { 
+  position:absolute; 
+  width:100%;
+  height:100%;
+  top:0;
+  left: 0;
+
+  z-index: 1;
+  }
+.linker:hover{
+	transform:scale(1.05);
+}
+.links{
+	font-size:1.3em;
+	color:white;
+	padding:10px;
+	text-decoration:none;
+}
+.links:hover{
+	font-size:1.5em;
+	
+}
+.sentencelinks{
+color:white;
+size:0.5em;
+text-decoration:none;
+
+}
+.body{
+    color:white;
+	background-color:rgba(0,0,0,0.85);
+	font-weight:1.2em;
+	padding:40px 30px;
+	width:462px;
+	margin:0px auto;
+	margin-top:100px;
+    border-radius: 30px;
+    box-sizing: border-box;
+	text-align:center;
+	box-shadow:2px 2px 2px 2px 5px gray;
+}
+.foot{
+  font-weight:1.2em;
+  float:right;
+}
+
+input[type=text],input[type=password],input[type=number],input[type=date] {
+    width:400px;
+    padding: 12px 20px;
+    margin: 6px 0;
+	font-size:18px;
+	color:gray;
+	font-weight:1.2em;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+@keyframes submitbutton {
+    from {background-color: #009933;}
+    to {background-color: #0085b2;}
+}
+input[type=submit]{
+    width:400px;
+    background-color:#0085b2;
+    color: white;
+	font-size:18px;
+    padding: 12px 20px;
+    margin: 6px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+	-webkit-animation: submitbutton 4s ease infinite alternate;
+}
+input[type=radio]{
+	height:1.5vw;
+	width:4vw;
+	}
