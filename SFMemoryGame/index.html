@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link href="default.png" rel="icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Bangers' rel='stylesheet'>
+	<link href='https://fonts.googleapis.com/css?family=Berkshire Swash' rel='stylesheet'>
+	<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Caveat Brush' rel='stylesheet'>
+    <link href="style.css" type="text/css" rel="stylesheet"  />
+    <script>	
+				
+				
+				var arr =[
+				   'apple.png',
+				   'banana.png'
+				  , 'apple.png'
+				  , 'banana.png',
+				  'orange.png',
+				   'mango.png'
+				  , 'orange.png'
+				  , 'mango.png'
+				  ,'grapes.png',
+				   'watermelon.png'
+				  , 'grapes.png'
+				  , 'watermelon.png'
+				  ,'pineapple.png',
+				   'strawberry.png'
+				  , 'pineapple.png'
+				  , 'strawberry.png'
+				  
+				];
+				var index= [ 1,2,1,2,3,4,3,4,6,5,6,5,7,8,7,8]
+				var turned=0;
+				var previous;
+				var count=0;
+				var out=[-1,-1,-1,-1,-1,-1,-1,-1]
+				var score=0;
+				var turns = 0;
+				var time =0 ; 
+				var start=0;
+				function allClosed(){
+			var i;
+			for(i=1;i<17;i++){
+			document.getElementById(i).style.backgroundImage ="url(default.png)";
+			document.getElementById(i).className="colani";
+			
+			}
+			arr = shuffle(arr);
+			}
+			function shuffle(array) {
+			  var currentIndex = array.length, temporaryValue, randomIndex;
+			  while (0 !== currentIndex) {
+						randomIndex = Math.floor(Math.random() * currentIndex);
+						currentIndex -= 1;
+						temporaryValue = array[currentIndex];
+						array[currentIndex] = array[randomIndex];
+						array[randomIndex] = temporaryValue;
+						temporaryValue = index[currentIndex];
+						index[currentIndex] = index[randomIndex];
+						index[randomIndex] = temporaryValue;
+				}
+
+				  return array;
+				}
+				
+				setInterval(function(){
+					if(out[16]!=-1&&start!=0){
+						time++;
+						
+					document.getElementById("time").innerHTML="<b>"+time+"</b>";
+								
+					}
+					}
+					,1000);
+				
+				</script>
+</head>
+<body>
+<script>    
+			newgame();
+			function rotate(id){
+			if(id==previous){
+			document.getElementById(previous+1).style.backgroundImage ="url(default.png)";
+			document.getElementById(previous+1).className="col";previous=-1;
+			turns++;
+			turned=0;
+			score=score-5;
+			document.getElementById("turns").innerHTML="<b>"+turns+"</b>";
+			document.getElementById("score").innerHTML="<b>"+score+"</b>";
+			}
+			else
+			if(id!=previous&&checkNew(id)&&turned!=2){
+			if(turned==0)
+			{
+			document.getElementById(id+1).className="inside";
+			setTimeout(function(){document.getElementById(id+1).style.backgroundImage ="url("+arr[id]+")";
+			},300);
+			turned=1;
+			previous=id;
+			}
+			else
+			if(turned==1)
+			{
+			setTimeout(function(){document.getElementById(id+1).style.backgroundImage ="url("+arr[id]+")";
+			},300);
+			
+			document.getElementById(id+1).className="inside";
+			if(index[id]!=index[previous]){
+			setTimeout(function(){document.getElementById(id+1).style.backgroundImage ="url(default.png)";
+			document.getElementById(id+1).className="col";
+			console.log(previous);
+			document.getElementById(previous+1).style.backgroundImage ="url(default.png)";
+			document.getElementById(previous+1).className="col";previous=-1;turned=0;}, 800);
+			turned=2;
+			turns++;
+			score=score-5;
+			document.getElementById("turns").innerHTML="<b>"+turns+"</b>";
+			document.getElementById("score").innerHTML="<b>"+score+"</b>";
+			}
+			if(index[id]==index[previous]){
+			setTimeout(function(){document.getElementById(id+1).style.background ="transparent";
+			document.getElementById(previous+1).style.background ="transparent";out[count]=id;
+			out[count+1]=previous;
+			out[count+2]=-1;
+			count=count+2;
+			console.log(out)
+			turned=0;
+			previous=-1;if(out[16]==-1)
+			{
+			if(time<=50){
+			score=score+30;
+			document.getElementById("timebonus").style.display="block";
+			}
+			document.getElementById("turns1").innerHTML="<b>"+turns+"</b>";
+			document.getElementById("score1").innerHTML="<b>"+score+"</b>";
+			document.getElementById("time1").innerHTML="<b>"+time+"</b>";
+			document.getElementById("congratulations").style.display="block";
+			}},500);
+			turns++;
+			score=score+10;
+			document.getElementById("turns").innerHTML="<b>"+turns+"</b>";
+			document.getElementById("score").innerHTML="<b>"+score+"</b>";
+			console.log(out[16],out[16]==-1)
+			
+			}}
+			}
+			
+			}
+			function checkNew(id){
+				for(i=0;out[i]!=-1;i++)
+					{
+					if (out[i]==id)
+					return(0);
+					
+					}
+				return(1);
+			}
+			
+			function scrollDown(){
+				$("html, body").animate({ scrollTop: $(document).height()-$(window).height() });
+			}
+			function startgame(){
+			allClosed();
+			document.getElementById("container1").style.display="block";
+			document.getElementById("name10").style.display="none";
+			document.getElementById("name_user").innerHTML = "<b>Welcome "+document.getElementById("fullname").value+"</b>";
+			start=1;
+			}
+			</script>
+
+			<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#"><img class="logo" src="default.png" width="25px" style="margin-right:5px;"/> Memory Game</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li style="cursor:pointer;"><a href="index.html">New Game</a></li>
+            <li><a>  Number of Moves : <div id="turns"><b>0</b></div></a></li>
+            <li><a>Score:<div id="score"><b>0</b></div></a></li>
+			<li><a>Time:<div id="time"><b>0</b></div></a></li>
+            
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+			<li ><a id="name_user"></a></li>
+            <li onclick="scrollDown()"><a style="cursor:pointer;"><b>Insructions</b></a></li>
+			
+        </ul>
+    </div>
+</nav>
+<div class="container1" id="container1">
+    <div class="row">
+        <div id="1" class="colani" onclick="rotate(0)"></div>
+        <div id="2"class="colani" onclick="rotate(1)"></div>
+        <div id="3"class="colani" onclick="rotate(2)"></div>
+        <div id="4"class="colani" onclick="rotate(3)"></div>
+    </div>
+    <div class="row">
+        <div id="5"class="colani" onclick="rotate(4)"></div>
+        <div id="6"class="colani"onclick="rotate(5)"></div>
+        <div id="7"class="colani" onclick="rotate(6)"></div>
+        <div id="8"class="colani" onclick="rotate(7)"></div>
+    </div>
+    <div class="row">
+        <div id="9"class="colani" onclick="rotate(8)"></div>
+        <div id="10"class="colani" onclick="rotate(9)"></div>
+        <div id="11"class="colani" onclick="rotate(10)"></div>
+        <div id="12"class="colani" onclick="rotate(11)"></div>
+    </div>
+    <div class="row">
+        <div id="13"class="colani" onclick="rotate(12)"></div>
+        <div id="14"class="colani" onclick="rotate(13)"></div>
+        <div id="15"class="colani" onclick="rotate(14)"></div>
+        <div id="16"class="colani" onclick="rotate(15)"></div>
+    </div>
+</div>
+<div class="instructions">
+    <h2>Instructions</h2>
+    <ul id="instructions-list">
+        <li>Click each card to turn it</li>
+        <li>Match cards and make all cards disappear</li>
+        <li>10 points for each correct match</li>
+        <li>-5 for incorrect match</li>
+		<li>Time bonus of 30 points if completed within 50 seconds</li>
+
+    </ul>
+	<div class="footer">Designed BY: Nilay Pathak</div>
+</div>
+<div id="congratulations">
+<h2 style="padding-left:0px;text-align:center; color:black;">Congratulations!</h2>
+<h3>Your Score:<div id="score1"><b>0</b></div><img src="time.png" width="70px" id="timebonus"/></h3>
+<h3>Number of Moves:<div id="turns1"><b>0</b></div></h3>
+<h3>Time taken:<div id="time1"><b>0</b></div></h3>
+<button type="button" onclick="location.href='index.html'" class="btn">Play Again</button>
+
+</div>
+<div class="name" id="name10">
+<textarea type="text" name="fullname" id="fullname"  placeholder="Enter Your Name" >Guest</textarea>
+<div class="name2" >
+<button id="namesubmit" onclick="startgame()">Start</button>
+</div>
+</div>
+<!--UPLOADING INTO CACHE FOR FASTER LOADING -->
+<img src="apple.png" width="0px" / >
+<img src="banana.png" width="0px" / >
+<img src="strawberry.png" width="0px" / >
+<img src="watermelon.png" width="0px" / >
+<img src="orange.png" width="0px" / >
+<img src="grapes.png" width="0px" / >
+<img src="mango.png" width="0px" / >
+<img src="pineapple.png" width="0px" / >
+<script>
+allClosed();
+
+</script>
+</body>
+</html>
