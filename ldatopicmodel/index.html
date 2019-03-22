@@ -1,0 +1,237 @@
+
+<html>
+    <head>
+       <!-- Latest compiled and minified CSS -->
+       <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
+    <style>
+    #button-spinner{
+        display: none;
+    }
+    #spinner{
+        display: none;
+    }
+    #result-container{
+        display: none;
+    }
+    
+    </style>
+    </head>
+    <body>
+
+            <nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-primary">
+                    <a class="navbar-brand" href="#">News Topic Detection</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                      <span class="navbar-toggler-icon"></span>
+                    </button>
+                  
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                      <ul class="navbar-nav mr-auto">
+                        
+                      </ul>
+                      <span class="navbar-text">
+                            Created By Nilay Pathak
+                          </span>
+                    </div>
+                  </nav>
+
+
+<div class="container-fluid">
+        <br />
+        <div class="jumbotron" >
+                <h1 class="display-5">Topic modelling of New York Times' news articles. </h1>
+                
+                <p class="lead">This is a model that segments the news articles into various topics using Latent Dirichlet Allocation Algorithm and displays the keywords corresponding to each topic.</p>
+                <hr class="my-4">
+                <p>Select a Date for the month of January,2019 in the tool given below. Also select the number of topics you want to segment the news article into.</p>
+                <p class="lead">
+                  <a class="btn btn-primary btn-lg" href="https://github.com/nilaypathak/topicmodel" role="button">Github Repository</a>
+                </p>
+                
+        </div>
+        <div class="jumbotron">
+                <h1 class="display-5">Topic Model</h1>
+                <!-- <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+                <hr class="my-4">
+                <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+                <p class="lead">
+                  <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+                </p> -->
+                <form>
+                <div class="form-group row">
+                <label for="numtopics" class="col-sm-2 col-form-label" >Number of topics</label>
+                <div class="col-sm-10">
+                <input name = "numtopics" class="form-control" type="number" id="numtopics" />
+                    </div><br/>
+                <label for="select_date" class="col-sm-2 col-form-label">Date</label>
+                <div class="col-sm-10">
+                <select name="select_date" class="form-control" id="date1">
+                    <script>
+                    i=0
+                    for(i=1;i<=31;i++){
+                        document.write("<option>" + i + "</option>");
+                    }
+                    </script>
+
+                </select>
+                </div>
+            </div>
+        </form>
+                <button class="btn btn-primary btn-lg" id="submit1" onclick= "sendrequest()">
+                        <span class="spinner-border spinner-border-sm" role="status" id='button-spinner'aria-hidden="true"></span>
+                        Submit</button>
+            
+              </div>
+        
+
+              <div class="jumbotron" id='result-container'>
+                    <h1 class="display-5">Results</h1>
+                    <div class="d-flex justify-content-center">
+                            <div class="spinner-grow text-primary"  id="spinner"role="status">
+                                    <span class="sr-only">Loading...</span>
+                                  </div>
+                          </div>
+                    <div id="result"></div>
+    
+                    
+            </div>
+        </div>
+        
+        <script>
+
+            function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+        sendrequest=()=>{
+            $("html, body").animate({ scrollTop: 700 }, "slow");
+            document.getElementById('button-spinner').style.display="block"
+            document.getElementById('spinner').style.display="block"
+            document.getElementById('submit1').value="Getting Results ..."
+            document.getElementById('result-container').style.display="block"
+            document.getElementById("result").innerHTML=''
+            date = document.getElementById("date1").value
+            numtopics= document.getElementById("numtopics").value
+            if(date<10){
+                date='0'+date
+            }
+            $.ajax({
+                url: "https://flasktopicmodel.herokuapp.com",
+                type: "get", //send it through get method
+                data: { 
+                    date : "2019-01-"+date, 
+                    topics: numtopics
+                    
+                },
+                success: function(response) {
+                    document.getElementById('button-spinner').style.display="none"
+                    document.getElementById('spinner').style.display="none"
+                    document.getElementById('submit1').value="Submit"
+                    console.log(response)
+
+                    var element = document.getElementById("result");
+                    element.innerHTML=""
+                    for(i=0;i<response.topicwords.length;i++){
+                        var box = document.createElement("div")
+                        var title = document.createElement("h5")
+                        var node = document.createTextNode("Topic #"+(i+1))
+                        title.appendChild(node);
+                        box.appendChild(title)
+                        element.appendChild(box)
+                        list = response.topicwords[i]
+                        str1=""
+                        for(j=0;j<list.length;j++){
+                           str1=str1+capitalizeFirstLetter(list[j])+'         |        ';
+
+                        }
+                        var para =document.createElement("p")
+                        var node = document.createTextNode(str1)
+                        para.appendChild(node);
+                        element.appendChild(para)
+                        
+
+
+                    }
+                    var box = document.createElement("div")
+                        var title = document.createElement("h4")
+                        var node = document.createTextNode("Predictions")
+                        title.appendChild(node);
+                        box.appendChild(title)
+                        element.appendChild(box)
+                    var table = document.createElement("table")
+                        table.className="table"
+                        var tr =document.createElement("tr")
+                        tr.className="table-primary"
+                        var th0 =document.createElement("th")
+                        var node = document.createTextNode("#")
+                        th0.appendChild(node)
+                        tr.appendChild(th0)
+                        var th1 =document.createElement("th")
+                        var node = document.createTextNode("Date")
+                        th1.appendChild(node)
+                        tr.appendChild(th1)
+                        var th2 =document.createElement("th")
+                        var node = document.createTextNode("Headline")
+                        th2.appendChild(node)
+                        tr.appendChild(th2)
+                        var th3 =document.createElement("th")
+                        var node = document.createTextNode("Article Body")
+                        th3.appendChild(node)
+                        tr.appendChild(th3)
+                        var th4 =document.createElement("th")
+                        var node = document.createTextNode("Topic #")
+                        th4.appendChild(node)
+                        tr.appendChild(th4)
+                        table.appendChild(tr)
+
+
+                        for(i=0;i<response.table.length;i++){
+                            list = response.table[i]
+
+                        var tr =document.createElement("tr")
+                        var th0 =document.createElement("th")
+                        var node = document.createTextNode(i+1)
+                        th0.appendChild(node)
+                        tr.appendChild(th0)
+                        var th1 =document.createElement("td")
+                        var node = document.createTextNode(list.date)
+                        th1.appendChild(node)
+                        tr.appendChild(th1)
+                        var th2 =document.createElement("td")
+                        var node = document.createTextNode(list.title)
+                        th2.appendChild(node)
+                        tr.appendChild(th2)
+                        var th3 =document.createElement("td")
+                        var node = document.createTextNode(list.article.slice(0,150)+"....")
+                        th3.appendChild(node)
+                        tr.appendChild(th3)
+                        var th4 =document.createElement("td")
+                        var node = document.createTextNode(list.topic)
+                        th4.appendChild(node)
+                        tr.appendChild(th4)
+                        table.appendChild(tr)
+
+                        }
+
+                        element.appendChild(table)
+                    console.log(element)
+                    // document.getElementById('result').innerHTML=response
+                },
+                error: function(xhr) {
+                    //Do Something to handle error
+                    document.getElementById('button-spinner').style.display="none"
+                    document.getElementById('spinner').style.display="none"
+                    document.getElementById('submit1').value="Submit"
+                }
+                });
+
+                
+        }
+        </script>
+    </body>
+    <script
+    src="http://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+</html>
