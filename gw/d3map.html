@@ -4,7 +4,7 @@
 <head>
   
   <meta charset=utf-8 />
-  <title>India Census - 2011</title>
+  <title>India Groundwater -2019</title>
 
   <link href='https://api.mapbox.com/mapbox.js/v3.2.0/mapbox.css' rel='stylesheet' />
     <script src='https://api.mapbox.com/mapbox.js/v3.2.0/mapbox.js'></script>
@@ -47,6 +47,7 @@
             background: black;
             opacity: 1;
             text-align: center;
+            display:none;
 	    }
 
         .filter-ui {
@@ -59,6 +60,7 @@
             padding: 10px;
             border: thin solid grey;
             border-radius:3px;
+            display:none;
         }
 
         .census-banner a {
@@ -81,26 +83,38 @@
             text-decoration: underline;
         }
         .close-btn{
-            background:white;
-            color: #ffd700;
+            
             position:absolute;
             top: 30px;
             right:20%;
             z-index: 1;
-            padding: 10px;
+            padding:6px;
             font-weight: bold;
-            font-size: 24px;
+            font-size: 20px;
             border: thin solid grey;
             text-decoration: none;
             border-radius:3px;
+            cursor:pointer;
+            display:none;
         }
+        .button5 {
+          color: #333;
+          border: 2px solid #555555;
+        }
+
+        .button5:hover {
+          background-color: #555555;
+          color: white;
+        }
+
+        .info { padding: 6px 8px; font: 14px/16px Arial, Helvetica, sans-serif; background: white; background: rgba(255,255,255,0.8); box-shadow: 0 0 15px rgba(0,0,0,0.2); border-radius: 5px; } .info h4 { margin: 0 0 5px; color: #777; }
 
 	</style>
 
 </head>
 
 <body>
-<div class = 'close-btn' id = 'close-btn' onclick = 'resetmap()'>CLose</div>
+<div class = 'close-btn button5' id = 'close-btn' onclick = 'resetmap()'>CLose</div>
 
 <div class="census-banner">
     <a href="http://www.census2011.co.in/" target="_blank">India Census - 2011</a>
@@ -117,12 +131,22 @@
 
 <script id="popup-template" type="text/template">
     <h2>{{state}}</h2>
-    <strong>Capital: </strong>{{capital}} <br>
+    <!-- <strong>Capital: </strong>{{capital}} <br>
     <strong>Population: </strong>{{population}} <br>
     <strong>Area: </strong>{{area}} square kilometer <br>
     <strong>Density: {{density}}</strong> people per square kilometer <br>
     <strong>Growth: </strong>{{growth}} % <br>
-    <strong>GroundWater: </strong>{{groundwater}} % <br>
+    <strong>GroundWater: </strong>{{groundwater}} % <br> -->
+
+</script>
+<script id="info-template" type="text/template">
+    <p>
+    <b>{{state}}  </b><br />
+
+          Depletion Rate : {{gw_dep}}   cm / Year<br/>
+          Consumption : {{consump}}  Mm<sup>3</sup>
+
+    </p>
 
 </script>
 
@@ -149,8 +173,9 @@
     // L.mapbox.accessToken = 'pk.eyJ1IjoiaW5pdGRvdCIsImEiOiJ3VkkxTldvIn0.7UPZ8q9fgBE70dMV7e0sLw';
         L.mapbox.accessToken = 'pk.eyJ1IjoibmlsYXlwYXRoYWsiLCJhIjoiY2p4NzdhczY5MDZzbTNvanlxZ21rcjV2NiJ9.tXolnfCCQLEATfnEosvkeg';
     // var map = L.mapbox.map('map').setView([21.836006, 87.824707], 5).addLayer(L.mapbox.styleLayer('mapbox://styles/mapbox/light-v10'));
-    var map = L.mapbox.map('map').setView([21.836006, 87.824707], 5).addLayer(L.mapbox.styleLayer('mapbox://styles/mapbox/dark-v10'));
+    // var map = L.mapbox.map('map').setView([21.836006, 87.824707], 5).addLayer(L.mapbox.styleLayer('mapbox://styles/mapbox/dark-v10'));
     // var map = L.mapbox.map('map').setView([22, 82.82], 5).addLayer(L.mapbox.styleLayer('mapbox://styles/nilaypathak/cjx7b20ar0nq71cmqqjtfanxx'));
+    var map = L.mapbox.map('map').setView([22, 82.82], 5).addLayer(L.mapbox.styleLayer('mapbox://styles/mapbox/streets-v9'));
     map.scrollWheelZoom.disable();
 
         // color reference from color brewer
@@ -165,7 +190,29 @@
         // layer for each state feature from geojson
         statesLayer,
         closeTooltip;
+        var info = L.control();
 
+    info.onAdd = function (map) {
+        this._div = L.DomUtil.create('div', 'info');
+        this.update();
+        return this._div;
+    };
+
+    info.update = function (props) {
+        if(props){
+        var infoData = {
+            state: gwdata[props.code].name,
+            gw_dep:Math.round(- gwdata[props.code].gw_dep * 100) / 100,
+            consump:Math.round(gwdata[props.code].consumption)
+        };
+        var infoContent = L.mapbox.template( d3.select("#info-template").text() , infoData );
+    }
+        this._div.innerHTML = '<h4>India Groundwater Depletion</h4>' +  (props ?
+            infoContent
+            : 'Select a State');
+    };
+
+    info.addTo(map);
     // fetch the state geojson data
     var statesDataGlobal ={}
     var selected_state = null
@@ -175,16 +222,18 @@
             style: getStyle,
             onEachFeature: onEachFeature
         });
-        statesLayer.addTo(map);
+        statesLayer.addTo(map,'state-label-lg');
     } );
     function resetmap(){
-        map.setView([22, 82.82], 5)
+
+        map.setView([22, 82.82], 5,3)
         statesLayer = L.geoJson(statesDataGlobal,  {
             style: getStyle,
             onEachFeature: onEachFeature
         });
         map.removeLayer(selected_state)
         map.addLayer(statesLayer)
+        document.getElementById('close-btn').style.display = 'none'
 
     }
     function getStyle(feature) {
@@ -226,15 +275,15 @@
 
         var popupData = {
             state: indiaCensus.states[layer.feature.properties.code].name,
-            density: indiaCensus.states[layer.feature.properties.code].density,
-            area: indiaCensus.states[layer.feature.properties.code].area,
-            growth: indiaCensus.states[layer.feature.properties.code].growth,
-            population: indiaCensus.states[layer.feature.properties.code].population,
-            capital: indiaCensus.states[layer.feature.properties.code].capital.name ,
-            groundwater:gwdata[layer.feature.properties.code].gw_dep
+            // density: indiaCensus.states[layer.feature.properties.code].density,
+            // area: indiaCensus.states[layer.feature.properties.code].area,
+            // growth: indiaCensus.states[layer.feature.properties.code].growth,
+            // population: indiaCensus.states[layer.feature.properties.code].population,
+            // capital: indiaCensus.states[layer.feature.properties.code].capital.name ,
+            // groundwater:gwdata[layer.feature.properties.code].gw_dep
         };
 
-        popup.setLatLng({ lat: 26.941659545381516, lng: 71.49902343750001 });
+        popup.setLatLng(e.latlng);
 
         var popContent = L.mapbox.template( d3.select("#popup-template").text() , popupData );
         popup.setContent( popContent );
@@ -254,6 +303,19 @@
         }
         // update the graph with literacy and sex ratio data
         updateGraph( indiaCensus.states[layer.feature.properties.code] );
+        var layer = e.target;
+
+        layer.setStyle({
+            weight: 5,
+            color: '#fff',
+            dashArray: '',
+            fillOpacity: 0.7
+        });
+
+        if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+            layer.bringToFront();
+        }
+        info.update(layer.feature.properties);
     }
 
     function mouseout(e) {
@@ -265,7 +327,8 @@
     }
 
     function zoomToFeature(e) {
-        map.fitBounds(e.target.getBounds());
+        // map.fitBounds(e.target.getBounds());
+        document.getElementById('close-btn').style.display = 'block'
         map.removeLayer(statesLayer)
         console.log(e.target.feature.properties.code)
         console.log(statesDataGlobal)
@@ -289,7 +352,7 @@
 
         // console.log('zoomed')
         
-        // map.setView(e.latlng, 13);
+        map.setView(e.latlng, 6);
     }
 
     function getLegendHTML() {
