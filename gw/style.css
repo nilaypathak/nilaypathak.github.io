@@ -1,0 +1,207 @@
+body { 
+        margin:0; padding:0; 
+        overflow-y:hidden;
+        overflow-x:hidden;
+    }
+
+.map { 
+    position: absolute; 
+    top:0; 
+    bottom:0;
+    width: 100vw;
+    height: 100vh;
+}
+
+.map-legend i {
+    width: 18px;
+    height: 18px;
+    float: left;
+    margin-right: 8px;
+    opacity: 0.7;
+}
+.leaflet-popup-close-button {
+    display: none;
+}
+.leaflet-popup-content-wrapper {
+    pointer-events: none;
+}
+
+.pie-graph, .bar-graph {
+
+	width: 250px;
+	height: 250px;
+    
+	border: thin solid grey;
+    background: black;
+    opacity: 1;
+    text-align: center;
+    display:none;
+
+}
+
+.filter-ui {
+    background: black;
+    color: white;
+    position:absolute;
+    top: 50px;
+    left: 0px;
+    z-index: 100;
+    padding: 10px;
+    border: thin solid grey;
+    border-radius:3px;
+    display:none;
+}
+
+.census-banner a {
+    background: black;
+    color: #ffd700;
+    position:absolute;
+    top: 50px;
+    left: 10px;
+    z-index: 1;
+    padding: 10px;
+    font-weight: bold;
+    font-size: 24px;
+    border: thin solid grey;
+    text-decoration: none;
+    border-radius:3px;
+    display:none;
+}
+
+.census-banner a:hover {
+    text-decoration: underline;
+}
+.button5{
+    
+    position:absolute;
+    
+    z-index: 1;
+    padding:6px;
+    font-weight: bold;
+    font-size: 20px;
+    border: thin solid grey;
+    text-decoration: none;
+    border-radius:3px;
+    cursor:pointer;
+}
+.button5:hover {
+  background-color: #555555;
+  color: white;
+}
+.close-btn{
+  color: #333;
+  border: 2px solid #555555;
+  top: 30px;
+right:20%;
+display:none;
+}
+.explore-btn{
+    position:absolute;
+    bottom:3%;
+    right:5%;
+    background-color: #4CAF50;
+      color: white;
+      border: 2px solid #4CAF50
+
+}
+.explore-btn:hover{
+  background-color: white; 
+  color: #4CAF50;
+}
+
+
+
+.panel{
+    padding: 6px 8px;
+    position:absolute;
+    z-index:100;
+    font: 14px/16px Arial, Helvetica, sans-serif; 
+    background: white; background: rgba(255,255,255,0.9); 
+    box-shadow: 0 0 15px rgba(0,0,0,0.2); 
+    border-radius: 5px; 
+    text-align:center;
+}
+.title-panel{
+    left:1%;
+    top:1%;
+    width:16%;
+    height:45%;
+}
+.left-panel { 
+    left:1%;
+    top:49%;
+    width:16%;
+    height:48%;
+   } 
+.right-panel { 
+    right:1%;
+    top:5%;
+    width:16%;
+    height:60%;
+    transform: translateX(110%);
+    -webkit-transform: translateX(110%);
+
+   } 
+.panel h4 { margin: 0 0 5px; color: #777; }
+.info { display:none;padding: 6px 8px; 
+    font: 14px/16px Arial, Helvetica, sans-serif; 
+    background: white; background: rgba(255,255,255,0.8); 
+    box-shadow: 0 0 15px rgba(0,0,0,0.2); 
+    border-radius: 5px; } 
+.info h4 { margin: 0 0 5px; color: #777; }
+.pie-d3{
+    display:block;
+    z-index:101;
+}
+.pie-container1{
+    position:absolute;
+    width:50%;
+    top:60px;
+    left:0px;
+    margin:0px;
+    box-sizing:border-box;
+}
+.pie-container2{
+    position:absolute;
+    width:50%;
+    top:60px;
+    left:50%;
+    margin:0px;
+    box-sizing:border-box;
+}
+.slide-in {
+    animation: slide-in 0.5s forwards;
+    -webkit-animation: slide-in 0.5s forwards;
+}
+
+.slide-out {
+    animation: slide-out 0.5s forwards;
+    -webkit-animation: slide-out 0.5s forwards;
+}
+    
+@keyframes slide-in {
+    100% { transform: translateX(0%); }
+}
+
+@-webkit-keyframes slide-in {
+    100% { -webkit-transform: translateX(0%); }
+}
+    
+@keyframes slide-out {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(110%); }
+}
+
+@-webkit-keyframes slide-out {
+    0% { -webkit-transform: translateX(0%); }
+    100% { -webkit-transform: translateX(110%); }
+}
+#info-container{
+    text-align: left;
+    padding: 6px 8px; 
+    font: 14px/16px Arial, Helvetica, sans-serif; 
+}
+.bar-chart{
+    position:absolute;
+    bottom:20px;
+}
